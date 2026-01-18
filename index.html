@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sakshi & Abhishek - We're Getting Married!</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -47,6 +50,7 @@
         html {
             scroll-behavior: smooth;
         }
+
         .hero-bg {
             /* Placeholder for Couple Background Pic */
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('abhi-sakshi.jpeg');
@@ -54,7 +58,7 @@
             background-position: center 20%;
             background-attachment: scroll;
         }
-        
+
         .section-pattern {
             background-color: #f9f5f0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c5a059' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -67,7 +71,9 @@
             margin: 2rem 0;
             color: #C5A059;
         }
-        .flower-divider::before, .flower-divider::after {
+
+        .flower-divider::before,
+        .flower-divider::after {
             content: "";
             height: 1px;
             background-color: #C5A059;
@@ -78,10 +84,19 @@
 
         /* Heartbeat Animation */
         @keyframes pulse-heart {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
+
         .animate-heartbeat {
             animation: pulse-heart 1.5s infinite ease-in-out;
         }
@@ -94,14 +109,16 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 40; /* Increased z-index to show over all sections */
+            z-index: 40;
+            /* Increased z-index to show over all sections */
             overflow: hidden;
         }
 
         .floating-heart {
             position: absolute;
             bottom: -20px;
-            color: rgba(197, 160, 89, 0.4); /* Gold color with transparency */
+            color: rgba(197, 160, 89, 0.4);
+            /* Gold color with transparency */
             font-size: 20px;
             animation: floatUp linear forwards;
         }
@@ -111,9 +128,11 @@
                 transform: translateY(0) rotate(0deg) scale(0.5);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.8;
             }
+
             100% {
                 transform: translateY(-100vh) rotate(360deg) scale(1.2);
                 opacity: 0;
@@ -124,363 +143,419 @@
         #mobile-menu {
             transition: transform 0.3s ease-in-out;
         }
+
         #mobile-menu.hidden {
             transform: translateY(-100%);
         }
+
         #mobile-menu:not(.hidden) {
             transform: translateY(0);
         }
     </style>
 </head>
+
 <body class="font-sans text-wedding-text antialiased overflow-x-hidden relative">
     <div id="music-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
         <div class="text-center text-white p-8 rounded-lg shadow-xl">
             <h2 class="font-script text-4xl mb-4">A little music for our celebration?</h2>
             <p class="mb-8 font-serif">We've got a special song for you as you browse our invitation.</p>
-            <button id="play-music-btn" class="bg-wedding-gold text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all transform hover:scale-105">
+            <button id="play-music-btn"
+                class="bg-wedding-gold text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition-all transform hover:scale-105">
                 <i class="fas fa-play mr-2"></i> Play Music
             </button>
         </div>
     </div>
     <main id="main-content" class="hidden">
-    <audio id="bg-audio" loop>
-        <source src="tharla-tar-mag.mp3" type="audio/mpeg">
-    </audio>
+        <audio id="bg-audio" loop>
+            <source src="sukh-kalale.mp3" type="audio/mpeg">
+        </audio>
 
-    <!-- Floating Hearts Container -->
-    <div id="hearts-container"></div>
+        <!-- Floating Hearts Container -->
+        <div id="hearts-container"></div>
 
-    <!-- Navigation Bar -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-transparent text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo / Names -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="font-script text-3xl md:text-4xl">#HappilyEverSAbhi</a>
+        <!-- Navigation Bar -->
+        <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-transparent text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo / Names -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="#" class="font-script text-3xl md:text-4xl">#HappilyEverSAbhi</a>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-8 items-center">
+                        <a href="#welcome"
+                            class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Welcome</a>
+                        <a href="#couple"
+                            class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Couple</a>
+                        <a href="#story"
+                            class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Story</a>
+                        <a href="#events"
+                            class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Events</a>
+                        <a href="#family"
+                            class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Family</a>
+                        <a href="#rsvp"
+                            class="px-5 py-2 border border-current rounded-full font-serif hover:bg-wedding-gold hover:border-wedding-gold hover:text-white transition-all text-sm uppercase tracking-wider">RSVP</a>
+                        <button class="volume-btn outline-none text-white">
+                            <i class="fas fa-volume-mute text-2xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden flex items-center space-x-4">
+                        <button class="volume-btn outline-none">
+                            <i class="fas fa-volume-mute text-2xl"></i>
+                        </button>
+                        <button id="mobile-menu-btn" class="outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#welcome" class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Welcome</a>
-                    <a href="#couple" class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Couple</a>
-                    <a href="#story" class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Story</a>
-                    <a href="#events" class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Events</a>
-                    <a href="#family" class="nav-link font-serif hover:text-wedding-gold transition-colors text-sm uppercase tracking-wider">Family</a>
-                    <a href="#rsvp" class="px-5 py-2 border border-current rounded-full font-serif hover:bg-wedding-gold hover:border-wedding-gold hover:text-white transition-all text-sm uppercase tracking-wider">RSVP</a>
-                    <button id="volume-btn" class="outline-none text-white">
-                        <i class="fas fa-volume-mute text-2xl"></i>
+            </div>
+
+            <!-- Mobile Menu Panel -->
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4">
+                <div class="flex flex-col space-y-4 px-6 text-center text-gray-800">
+                    <a href="#welcome" class="mobile-link block py-2 hover:text-wedding-red font-serif">Welcome</a>
+                    <a href="#couple" class="mobile-link block py-2 hover:text-wedding-red font-serif">Couple</a>
+                    <a href="#story" class="mobile-link block py-2 hover:text-wedding-red font-serif">Story</a>
+                    <a href="#events" class="mobile-link block py-2 hover:text-wedding-red font-serif">Events</a>
+                    <a href="#family" class="mobile-link block py-2 hover:text-wedding-red font-serif">Family</a>
+                    <a href="#rsvp" class="block py-2 text-wedding-red font-bold font-serif">RSVP</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header
+            class="hero-bg h-screen w-full flex flex-col justify-center items-center text-white text-center px-4 relative">
+            <div data-aos="fade-down" data-aos-duration="1500">
+                <h2
+                    class="font-marathi text-2xl md:text-4xl mb-4 font-bold tracking-wide text-wedding-gold drop-shadow-md">
+                    ठरलं तर मग… 💍</h2>
+                <h1 class="font-script text-6xl md:text-8xl mb-2 drop-shadow-lg">Sakshi & Abhishek</h1>
+                <p class="font-serif text-xl md:text-2xl uppercase tracking-widest mb-8">We’re Getting Married! 🎉</p>
+
+                <!-- Countdown -->
+                <div class="mt-8">
+                    <p class="mb-4 text-sm uppercase tracking-wider opacity-90">And the countdown has officially begun ⏳
+                    </p>
+                    <div id="countdown" class="flex flex-wrap justify-center gap-4 text-center">
+                        <!-- Timer injected by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-16 w-full text-center animate-bounce">
+                <a href="#welcome" class="text-white hover:text-wedding-gold transition-colors">
+                    <p class="text-xs uppercase tracking-wider mb-1">Scroll Down</p>
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- Intro / Welcome -->
+        <section id="welcome" class="py-20 px-4 bg-white/90 text-center relative z-10 backdrop-blur-sm">
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <span class="text-wedding-gold text-4xl mb-4 block"><i class="fas fa-dove"></i></span>
+                <h2 class="font-serif text-4xl md:text-5xl text-wedding-red mb-6">Hello There! 👋</h2>
+                <div class="flower-divider"><i class="fas fa-heart"></i></div>
+                <p class="text-lg leading-relaxed text-gray-600 mb-8">
+                    With hearts full of love and dance moves fully ready, we invite you to celebrate the beginning of
+                    our forever.
+                </p>
+            </div>
+        </section>
+
+        <!-- Meet The Couple -->
+        <section id="couple" class="section-pattern py-24 px-4 overflow-hidden relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-center font-script text-5xl md:text-6xl text-wedding-red mb-16 md:mb-24"
+                    data-aos="fade-up">Meet The Couple</h2>
+
+                <div class="flex flex-col md:flex-row items-center justify-center md:gap-0 relative">
+
+                    <!-- Sakshi Details (Left Side) -->
+                    <div class="order-2 md:order-1 w-full md:w-1/3 text-center md:text-right px-4 mt-8 md:mt-0 space-y-3 z-20"
+                        data-aos="fade-right">
+                        <h3 class="font-serif text-3xl md:text-4xl text-wedding-red font-bold">Sakshi Mhatre</h3>
+                        <p class="text-wedding-gold font-script text-2xl">The Spark with Sunshine</p>
+                        <div class="h-px bg-wedding-gold w-16 mx-auto md:ml-auto md:mr-0 opacity-50 my-2"></div>
+                        <div class="text-gray-600">
+                            <p class="text-sm italic mb-1">Daughter of</p>
+                            <p class="font-medium text-lg">Mr. Sameer Mhatre</p>
+                            <p class="font-medium text-lg">& Mrs. Supriya Mhatre</p>
+                        </div>
+                    </div>
+
+                    <!-- Center Photo Composition -->
+                    <div class="order-1 md:order-2 w-full md:w-auto flex justify-center items-center relative z-10 py-4 gap-4"
+                        data-aos="zoom-in">
+
+                        <!-- Sakshi Photo Circle -->
+                        <div
+                            class="relative w-40 h-40 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full border-[6px] border-white shadow-2xl overflow-hidden z-10">
+                            <img src="sakshi.jpeg" alt="Sakshi"
+                                class="w-full h-full object-cover object-top transform hover:scale-110 transition-transform duration-700">
+                        </div>
+
+                        <!-- Intersecting Heart -->
+                        <div class="absolute z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <div
+                                class="bg-white rounded-full p-3 shadow-xl border-2 border-wedding-gold animate-heartbeat flex items-center justify-center w-14 h-14 md:w-16 md:h-16">
+                                <i class="fas fa-heart text-2xl md:text-3xl text-wedding-red"></i>
+                            </div>
+                        </div>
+
+                        <!-- Abhishek Photo Circle -->
+                        <div
+                            class="relative w-40 h-40 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full border-[6px] border-white shadow-2xl overflow-hidden z-10">
+                            <img src="abhi.jpeg" alt="Abhishek"
+                                class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
+                        </div>
+                    </div>
+
+                    <!-- Abhishek Details (Right Side) -->
+                    <div class="order-3 w-full md:w-1/3 text-center md:text-left px-4 mt-8 md:mt-0 space-y-3 z-20"
+                        data-aos="fade-left">
+                        <h3 class="font-serif text-3xl md:text-4xl text-wedding-red font-bold">Abhishek Maynak</h3>
+                        <p class="text-wedding-gold font-script text-2xl">The Calm & Composed</p>
+                        <div class="h-px bg-wedding-gold w-16 mx-auto md:mr-auto md:ml-0 opacity-50 my-2"></div>
+                        <div class="text-gray-600">
+                            <p class="text-sm italic mb-1">Son of</p>
+                            <p class="font-medium text-lg">Mr. Sunil Maynak</p>
+                            <p class="font-medium text-lg">& Mrs. Shobha Maynak</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section id="story" class="py-20 px-4 bg-white/90 backdrop-blur-sm overflow-hidden relative z-10">
+            <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
+                <h2 class="font-serif text-3xl md:text-4xl text-wedding-red mb-4">Our Story</h2>
+                <div class="flower-divider"><i class="fas fa-infinity"></i></div>
+
+                <div class="prose prose-lg mx-auto text-gray-600 space-y-6">
+                    <p>Some love stories happen fast. Ours took its own sweet time, and honestly, we would not change a
+                        thing.</p>
+
+                    <p>From growing up in the same neighborhood to surviving over five years of long distance, we were
+                        best friends first, partners next, and now each other’s forever.</p>
+
+                    <div
+                        class="bg-wedding-soft p-8 rounded-lg shadow-inner my-8 border-l-4 border-wedding-gold transform hover:scale-105 transition-transform duration-500">
+                        <p class="italic text-wedding-text font-serif text-xl">"No dramatic proposal, no big moment,
+                            just a love that grew naturally, steadily, and undeniably over 13 beautiful years."</p>
+                    </div>
+
+                    <p>He is the calm and composed one. She is the spark with all the sunshine.</p>
+
+                    <p class="font-medium text-wedding-red">Together, we balance, laugh, grow, and now we are ready to
+                        say “I do” with our favorite people by our side.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events -->
+        <section id="events" class="section-pattern py-20 px-4 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-center font-script text-5xl text-wedding-red mb-16" data-aos="fade-down">Our Special
+                    Celebrations 🥂</h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Sangeet -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                        data-aos="fade-right">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="sangeet.png" alt="Sangeet Celebration"
+                                class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-2 left-4 text-white font-serif text-xl">Bollywood Style</div>
+                        </div>
+                        <div class="p-8 text-center relative">
+                            <div
+                                class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-wedding-red text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold mb-2 mt-2">Sangeet Night</h3>
+                            <p class="text-wedding-gold font-medium mb-4">Friday, 6th February 2026</p>
+                            <p class="text-gray-500 mb-6">6:00 PM onwards</p>
+                            <p class="italic text-gray-600 mb-6">"Let’s dance, sing, and celebrate love, Bollywood
+                                style!"</p>
+                            <div class="border-t border-gray-100 pt-6">
+                                <p class="font-bold text-gray-800">SEEMA’S Resort</p>
+                                <p class="text-sm text-gray-500 mb-4">Karjat Kalyan Road, Neral</p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=SEEMA’S+Resort,Karjat+Kalyan+Road,Neral"
+                                    class="inline-block px-6 py-2 border border-wedding-red text-wedding-red rounded-full hover:bg-wedding-red hover:text-white transition-colors text-sm shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wedding -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                        data-aos="fade-left">
+                        <div class="relative overflow-hidden h-48">
+                            <img src="reception.png" alt="Wedding Celebration"
+                                class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <div class="absolute bottom-2 left-4 text-white font-serif text-xl">The Big Day</div>
+                        </div>
+                        <div class="p-8 text-center relative">
+                            <div
+                                class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-wedding-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                                <i class="fas fa-ring"></i>
+                            </div>
+                            <h3 class="font-serif text-2xl font-bold mb-2 mt-2">Wedding & Reception</h3>
+                            <p class="text-wedding-red font-medium mb-2">Saturday, 7th February 2026</p>
+                            <p
+                                class="text-sm bg-wedding-soft inline-block px-3 py-1 rounded-full text-wedding-red mb-4 font-bold shadow-sm">
+                                Muhurat: 11:53 AM</p>
+
+                            <p class="italic text-gray-600 mb-6">"Followed by delicious food, laughter, and
+                                celebrations."</p>
+                            <div class="border-t border-gray-100 pt-6">
+                                <p class="font-bold text-gray-800">SEEMA’S Resort</p>
+                                <p class="text-sm text-gray-500 mb-4">Karjat Kalyan Road, Neral</p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=SEEMA’S+Resort,Karjat+Kalyan+Road,Neral"
+                                    class="inline-block px-6 py-2 border border-wedding-gold text-wedding-gold rounded-full hover:bg-wedding-gold hover:text-white transition-colors text-sm shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Family -->
+        <section id="family" class="py-20 px-4 bg-white/90 backdrop-blur-sm relative z-10">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="font-script text-5xl text-wedding-red mb-6" data-aos="fade-up">Meet Our Loving Family Members
+                    🤍</h2>
+                <p class="max-w-2xl mx-auto text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">
+                    Our families are our biggest cheerleaders and strongest pillars. They have helped shape our journey
+                    and will be around during the celebrations to help you with anything you need, whether it is
+                    directions, smiles, or dance partners.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Sakshi Parents -->
+                    <div class="p-6 rounded-lg bg-wedding-soft" data-aos="flip-left">
+                        <div class="w-1/2 h-48 mx-auto mb-4 rounded-lg overflow-hidden border-2 border-wedding-gold">
+                            <img src="sakshi-family.jpeg" alt="A photo of Sakshi's parents, Sameer & Supriya Mhatre"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <h4 class="font-serif text-xl font-extrabold text-gray-800">Sameer & Supriya Mhatre</h4>
+                        <p class="text-sm text-wedding-red mt-1">Sakshi's Parents</p>
+                    </div>
+
+                    <!-- Abhishek Parents -->
+                    <div class="p-6 rounded-lg bg-wedding-soft" data-aos="flip-up" data-aos-delay="100">
+                        <div class="w-1/2 h-48 mx-auto mb-4 rounded-lg overflow-hidden border-2 border-wedding-gold">
+                            <img src="abhi-family.jpeg" alt="A photo of Abhishek's parents, Sunil & Shobha Maynak"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <h4 class="font-serif text-xl font-extrabold text-gray-800">Sunil & Shobha Maynak</h4>
+                        <p class="text-sm text-wedding-red mt-1">Abhishek's Parents</p>
+                    </div>
+
+                    <!-- Sister & BIL -->
+                    <div class="p-6 rounded-lg bg-wedding-soft" data-aos="flip-right" data-aos-delay="200">
+                        <div class="w-1/2 h-48 mx-auto mb-4 rounded-lg overflow-hidden border-2 border-wedding-gold">
+                            <img src="sakshi-sister.jpeg"
+                                alt="A photo of Sakshi's sister and brother-in-law, Tanvi & Rutu Punekar"
+                                class="w-full h-full object-cover object-top">
+                        </div>
+                        <h4 class="font-serif text-xl font-extrabold text-gray-800">Tanvi & Rutu Punekar</h4>
+                        <p class="text-sm text-wedding-red mt-1">Sakshi's Sister & Brother-in-law</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section id="rsvp" class="section-pattern py-20 px-4 relative">
+            <div class="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-2xl relative z-10" data-aos="fade-up">
+                <div class="text-center mb-8">
+                    <span class="text-4xl">🥳</span>
+                    <h2 class="font-serif text-3xl font-bold text-wedding-red mt-2">Kindly Respond</h2>
+                    <p class="text-gray-600 mt-2">We cannot wait to make memories with you!</p>
+                </div>
+
+                <div id="rsvp-success" class="hidden text-center">
+                    <h2 class="font-serif text-2xl font-bold text-wedding-red mt-2">Thank you!</h2>
+                    <p class="text-gray-600 mt-2">Your response has been recorded. We can't wait to celebrate with you!
+                    </p>
+                </div>
+
+                <form id="rsvp-form" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                        <input type="text" name="fullName"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wedding-gold focus:border-wedding-gold outline-none transition-all"
+                            placeholder="Enter your full name" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Number of Guests</label>
+                        <select name="guests"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wedding-gold outline-none">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6 Guests</option>
+                            <option value="7">7 Guests</option>
+                            <option value="8">8 Guests</option>
+                            <option value="9">9 Guests</option>
+                            <option value="10">10 Guests</option>
+                            <option value="11">11 Guests</option>
+                            <option value="12">12 Guests</option>
+                            <option value="13">13 Guests</option>
+                            <option value="14">14 Guests</option>
+                            <option value="15">15 Guests</option>
+                            <option value="16">16 Guests</option>
+                            <option value="17">17 Guests</option>
+                            <option value="18">18 Guests</option>
+                            <option value="19">19 Guests</option>
+                            <option value="20">20 Guests</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Will you be attending?</label>
+                        <div class="flex space-x-4">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="attending" value="Yes"
+                                    class="text-wedding-red focus:ring-wedding-red" checked>
+                                <span>Yes, can't wait!</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="attending" value="No"
+                                    class="text-wedding-red focus:ring-wedding-red">
+                                <span>Sorry, can't make it</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-wedding-red text-white font-serif py-4 rounded-lg hover:bg-red-900 transition-colors shadow-lg text-lg tracking-wide">
+                        Send RSVP
                     </button>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+                </form>
             </div>
-        </div>
+        </section>
 
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4">
-            <div class="flex flex-col space-y-4 px-6 text-center text-gray-800">
-                <a href="#welcome" class="mobile-link block py-2 hover:text-wedding-red font-serif">Welcome</a>
-                <a href="#couple" class="mobile-link block py-2 hover:text-wedding-red font-serif">Couple</a>
-                <a href="#story" class="mobile-link block py-2 hover:text-wedding-red font-serif">Story</a>
-                <a href="#events" class="mobile-link block py-2 hover:text-wedding-red font-serif">Events</a>
-                <a href="#family" class="mobile-link block py-2 hover:text-wedding-red font-serif">Family</a>
-                <a href="#rsvp" class="block py-2 text-wedding-red font-bold font-serif">RSVP</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero-bg h-screen w-full flex flex-col justify-center items-center text-white text-center px-4 relative">
-        <div data-aos="fade-down" data-aos-duration="1500">
-            <h2 class="font-marathi text-2xl md:text-4xl mb-4 font-bold tracking-wide text-wedding-gold drop-shadow-md">ठरलं तर मग… 💍</h2>
-            <h1 class="font-script text-6xl md:text-8xl mb-2 drop-shadow-lg">Sakshi & Abhishek</h1>
-            <p class="font-serif text-xl md:text-2xl uppercase tracking-widest mb-8">We’re Getting Married! 🎉</p>
-            
-            <!-- Countdown -->
-            <div class="mt-8">
-                <p class="mb-4 text-sm uppercase tracking-wider opacity-90">And the countdown has officially begun ⏳</p>
-                <div id="countdown" class="flex flex-wrap justify-center gap-4 text-center">
-                    <!-- Timer injected by JS -->
-                </div>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-10 w-full text-center animate-bounce">
-            <a href="#welcome" class="text-white hover:text-wedding-gold transition-colors">
-                <i class="fas fa-chevron-down text-2xl"></i>
-            </a>
-        </div>
-    </header>
-
-    <!-- Intro / Welcome -->
-    <section id="welcome" class="py-20 px-4 bg-white/90 text-center relative z-10 backdrop-blur-sm">
-        <div class="max-w-3xl mx-auto" data-aos="fade-up">
-            <span class="text-wedding-gold text-4xl mb-4 block"><i class="fas fa-dove"></i></span>
-            <h2 class="font-serif text-4xl md:text-5xl text-wedding-red mb-6">Hello There! 👋</h2>
-            <div class="flower-divider"><i class="fas fa-heart"></i></div>
-            <p class="text-lg leading-relaxed text-gray-600 mb-8">
-                With hearts full of love and dance moves fully ready, we invite you to celebrate the beginning of our forever.
-            </p>
-        </div>
-    </section>
-
-    <!-- Meet The Couple -->
-    <section id="couple" class="section-pattern py-24 px-4 overflow-hidden relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-center font-script text-5xl md:text-6xl text-wedding-red mb-16 md:mb-24" data-aos="fade-up">Meet The Couple</h2>
-            
-            <div class="flex flex-col md:flex-row items-center justify-center md:gap-0 relative">
-                
-                <!-- Sakshi Details (Left Side) -->
-                <div class="order-2 md:order-1 w-full md:w-1/3 text-center md:text-right px-4 mt-8 md:mt-0 space-y-3 z-20" data-aos="fade-right">
-                    <h3 class="font-serif text-3xl md:text-4xl text-wedding-red font-bold">Sakshi Mhatre</h3>
-                    <p class="text-wedding-gold font-script text-2xl">The Spark with Sunshine</p>
-                    <div class="h-px bg-wedding-gold w-16 mx-auto md:ml-auto md:mr-0 opacity-50 my-2"></div>
-                    <div class="text-gray-600">
-                        <p class="text-sm italic mb-1">Daughter of</p>
-                        <p class="font-medium text-lg">Mr. Sameer Mhatre</p>
-                        <p class="font-medium text-lg">& Mrs. Supriya Mhatre</p>
-                    </div>
-                </div>
-
-                <!-- Center Photo Composition -->
-                <div class="order-1 md:order-2 w-full md:w-auto flex justify-center items-center relative z-10 py-4 gap-4" data-aos="zoom-in">
-                    
-                    <!-- Sakshi Photo Circle -->
-                    <div class="relative w-40 h-40 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full border-[6px] border-white shadow-2xl overflow-hidden z-10">
-                        <img src="sakshi.jpeg" 
-                             alt="Sakshi" 
-                             class="w-full h-full object-cover object-top transform hover:scale-110 transition-transform duration-700">
-                    </div>
-
-                    <!-- Intersecting Heart -->
-                    <div class="absolute z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <div class="bg-white rounded-full p-3 shadow-xl border-2 border-wedding-gold animate-heartbeat flex items-center justify-center w-14 h-14 md:w-16 md:h-16">
-                            <i class="fas fa-heart text-2xl md:text-3xl text-wedding-red"></i>
-                        </div>
-                    </div>
-
-                    <!-- Abhishek Photo Circle -->
-                    <div class="relative w-40 h-40 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full border-[6px] border-white shadow-2xl overflow-hidden z-10">
-                        <img src="abhi.jpeg" 
-                             alt="Abhishek" 
-                             class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
-                    </div>
-                </div>
-
-                <!-- Abhishek Details (Right Side) -->
-                <div class="order-3 w-full md:w-1/3 text-center md:text-left px-4 mt-8 md:mt-0 space-y-3 z-20" data-aos="fade-left">
-                    <h3 class="font-serif text-3xl md:text-4xl text-wedding-red font-bold">Abhishek Maynak</h3>
-                    <p class="text-wedding-gold font-script text-2xl">The Calm & Composed</p>
-                    <div class="h-px bg-wedding-gold w-16 mx-auto md:mr-auto md:ml-0 opacity-50 my-2"></div>
-                    <div class="text-gray-600">
-                        <p class="text-sm italic mb-1">Son of</p>
-                        <p class="font-medium text-lg">Mr. Sunil Maynak</p>
-                        <p class="font-medium text-lg">& Mrs. Shobha Maynak</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Story -->
-    <section id="story" class="py-20 px-4 bg-white/90 backdrop-blur-sm overflow-hidden relative z-10">
-        <div class="max-w-4xl mx-auto text-center" data-aos="zoom-in">
-            <h2 class="font-serif text-3xl md:text-4xl text-wedding-red mb-4">Our Story</h2>
-            <div class="flower-divider"><i class="fas fa-infinity"></i></div>
-            
-            <div class="prose prose-lg mx-auto text-gray-600 space-y-6">
-                <p>Some love stories happen fast. Ours took its own sweet time, and honestly, we would not change a thing.</p>
-                
-                <p>From growing up in the same neighborhood to surviving over five years of long distance, we were best friends first, partners next, and now each other’s forever.</p>
-                
-                <div class="bg-wedding-soft p-8 rounded-lg shadow-inner my-8 border-l-4 border-wedding-gold transform hover:scale-105 transition-transform duration-500">
-                    <p class="italic text-wedding-text font-serif text-xl">"No dramatic proposal, no big moment, just a love that grew naturally, steadily, and undeniably over 13 beautiful years."</p>
-                </div>
-
-                <p>He is the calm and composed one. She is the spark with all the sunshine.</p>
-                
-                <p class="font-medium text-wedding-red">Together, we balance, laugh, grow, and now we are ready to say “I do” with our favorite people by our side.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events -->
-    <section id="events" class="section-pattern py-20 px-4 relative z-10">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-center font-script text-5xl text-wedding-red mb-16" data-aos="fade-down">Our Special Celebrations 🥂</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Sangeet -->
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-300 border border-gray-100" data-aos="fade-right">
-                    <div class="relative overflow-hidden h-48">
-                        <img src="sangeet.png" alt="Sangeet Celebration" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        <div class="absolute bottom-2 left-4 text-white font-serif text-xl">Bollywood Style</div>
-                    </div>
-                    <div class="p-8 text-center relative">
-                        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-wedding-red text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <h3 class="font-serif text-2xl font-bold mb-2 mt-2">Sangeet Night</h3>
-                        <p class="text-wedding-gold font-medium mb-4">Friday, 6th February 2026</p>
-                        <p class="text-gray-500 mb-6">6:00 PM onwards</p>
-                        <p class="italic text-gray-600 mb-6">"Let’s dance, sing, and celebrate love, Bollywood style!"</p>
-                        <div class="border-t border-gray-100 pt-6">
-                            <p class="font-bold text-gray-800">SEEMA’S Resort</p>
-                            <p class="text-sm text-gray-500 mb-4">Karjat Kalyan Road, Neral</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=SEEMA’S+Resort,Karjat+Kalyan+Road,Neral" class="inline-block px-6 py-2 border border-wedding-red text-wedding-red rounded-full hover:bg-wedding-red hover:text-white transition-colors text-sm shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                                <i class="fas fa-map-marker-alt mr-2"></i>Google Maps
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Wedding -->
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:-translate-y-4 hover:shadow-2xl transition-all duration-300 border border-gray-100" data-aos="fade-left">
-                    <div class="relative overflow-hidden h-48">
-                        <img src="reception.png" alt="Wedding Celebration" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        <div class="absolute bottom-2 left-4 text-white font-serif text-xl">The Big Day</div>
-                    </div>
-                    <div class="p-8 text-center relative">
-                        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-wedding-gold text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
-                            <i class="fas fa-ring"></i>
-                        </div>
-                        <h3 class="font-serif text-2xl font-bold mb-2 mt-2">Wedding & Reception</h3>
-                        <p class="text-wedding-red font-medium mb-2">Saturday, 7th February 2026</p>
-                        <p class="text-sm bg-wedding-soft inline-block px-3 py-1 rounded-full text-wedding-red mb-4 font-bold shadow-sm">Muhurat: 11:53 AM</p>
-                        <p class="text-gray-500 mb-6">11:00 AM onwards</p>
-                        <p class="italic text-gray-600 mb-6">"Followed by delicious food, laughter, and celebrations."</p>
-                        <div class="border-t border-gray-100 pt-6">
-                            <p class="font-bold text-gray-800">SEEMA’S Resort</p>
-                            <p class="text-sm text-gray-500 mb-4">Karjat Kalyan Road, Neral</p>
-                            <a href="https://www.google.com/maps/search/?api=1&query=SEEMA’S+Resort,Karjat+Kalyan+Road,Neral" class="inline-block px-6 py-2 border border-wedding-gold text-wedding-gold rounded-full hover:bg-wedding-gold hover:text-white transition-colors text-sm shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                                <i class="fas fa-map-marker-alt mr-2"></i>Google Maps
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Family -->
-    <section id="family" class="py-20 px-4 bg-white/90 backdrop-blur-sm relative z-10">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="font-script text-5xl text-wedding-red mb-6" data-aos="fade-up">Meet Our Loving Family Members 🤍</h2>
-            <p class="max-w-2xl mx-auto text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">
-                Our families are our biggest cheerleaders and strongest pillars. They have helped shape our journey and will be around during the celebrations to help you with anything you need, whether it is directions, smiles, or dance partners.
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Sakshi Parents -->
-                <div class="p-6 rounded-lg bg-wedding-soft" data-aos="flip-left">
-                    <div class="w-1/2 h-48 mx-auto mb-4 rounded-lg overflow-hidden border-2 border-wedding-gold">
-                        <img src="sakshi-family.jpeg" alt="A photo of Sakshi's parents, Sameer & Supriya Mhatre" class="w-full h-full object-cover object-top">
-                    </div>
-                    <h4 class="font-serif text-xl font-extrabold text-gray-800">Sameer & Supriya Mhatre</h4>
-                    <p class="text-sm text-wedding-red mt-1">Sakshi's Parents</p>
-                </div>
-
-                <!-- Abhishek Parents -->
-                <div class="p-6 rounded-lg bg-wedding-soft" data-aos="flip-up" data-aos-delay="100">
-                    <div class="w-1/2 h-48 mx-auto mb-4 rounded-lg overflow-hidden border-2 border-wedding-gold">
-                        <img src="abhi-family.jpeg" alt="A photo of Abhishek's parents, Sunil & Shobha Maynak" class="w-full h-full object-cover object-top">
-                    </div>
-                    <h4 class="font-serif text-xl font-extrabold text-gray-800">Sunil & Shobha Maynak</h4>
-                    <p class="text-sm text-wedding-red mt-1">Abhishek's Parents</p>
-                </div>
-
-                <!-- Sister & BIL -->
-                <div class="p-6 rounded-lg bg-wedding-soft" data-aos="flip-right" data-aos-delay="200">
-                    <div class="w-1/2 h-48 mx-auto mb-4 rounded-lg overflow-hidden border-2 border-wedding-gold">
-                        <img src="sakshi-sister.jpeg" alt="A photo of Sakshi's sister and brother-in-law, Tanvi & Rutu Punekar" class="w-full h-full object-cover object-top">
-                    </div>
-                    <h4 class="font-serif text-xl font-extrabold text-gray-800">Tanvi & Rutu Punekar</h4>
-                    <p class="text-sm text-wedding-red mt-1">Sakshi's Sister & Brother-in-law</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RSVP -->
-    <section id="rsvp" class="section-pattern py-20 px-4 relative">
-        <div class="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-2xl relative z-10" data-aos="fade-up">
-            <div class="text-center mb-8">
-                <span class="text-4xl">🥳</span>
-                <h2 class="font-serif text-3xl font-bold text-wedding-red mt-2">Kindly Respond</h2>
-                <p class="text-gray-600 mt-2">We cannot wait to make memories with you!</p>
-            </div>
-
-            <div id="rsvp-success" class="hidden text-center">
-                <h2 class="font-serif text-2xl font-bold text-wedding-red mt-2">Thank you!</h2>
-                <p class="text-gray-600 mt-2">Your response has been recorded. We can't wait to celebrate with you!</p>
-            </div>
-
-            <form id="rsvp-form" class="space-y-6">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                    <input type="text" name="fullName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wedding-gold focus:border-wedding-gold outline-none transition-all" placeholder="Enter your full name" required>
-                </div>
-                
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Number of Guests</label>
-                    <select name="guests" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wedding-gold outline-none">
-                        <option value="1">1 Guest</option>
-                        <option value="2">2 Guests</option>
-                        <option value="3">3 Guests</option>
-                        <option value="4">4 Guests</option>
-                        <option value="5">5 Guests</option>
-                        <option value="6">6 Guests</option>
-                        <option value="7">7 Guests</option>
-                        <option value="8">8 Guests</option>
-                        <option value="9">9 Guests</option>
-                        <option value="10">10 Guests</option>
-                        <option value="11">11 Guests</option>
-                        <option value="12">12 Guests</option>
-                        <option value="13">13 Guests</option>
-                        <option value="14">14 Guests</option>
-                        <option value="15">15 Guests</option>
-                        <option value="16">16 Guests</option>
-                        <option value="17">17 Guests</option>
-                        <option value="18">18 Guests</option>
-                        <option value="19">19 Guests</option>
-                        <option value="20">20 Guests</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Will you be attending?</label>
-                    <div class="flex space-x-4">
-                        <label class="flex items-center space-x-2 cursor-pointer">
-                            <input type="radio" name="attending" value="Yes" class="text-wedding-red focus:ring-wedding-red" checked>
-                            <span>Yes, can't wait!</span>
-                        </label>
-                        <label class="flex items-center space-x-2 cursor-pointer">
-                            <input type="radio" name="attending" value="No" class="text-wedding-red focus:ring-wedding-red">
-                            <span>Sorry, can't make it</span>
-                        </label>
-                    </div>
-                </div>
-
-                <button type="submit" class="w-full bg-wedding-red text-white font-serif py-4 rounded-lg hover:bg-red-900 transition-colors shadow-lg text-lg tracking-wide">
-                    Send RSVP
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="bg-wedding-red text-white text-center py-8">
-        <p class="font-script text-3xl mb-2">Sakshi & Abhishek</p>
-        <p class="text-sm opacity-75">Made with ❤️ for our special day</p>
-    </footer>
+        <footer class="bg-wedding-red text-white text-center py-8">
+            <p class="font-script text-3xl mb-2">Sakshi & Abhishek</p>
+            <p class="text-sm opacity-75">Made with ❤️ for our special day</p>
+        </footer>
     </main>
 
     <!-- AOS Script -->
@@ -497,15 +572,24 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
         const navLinks = document.querySelectorAll('.nav-link');
+        const volumeBtns = document.querySelectorAll('.volume-btn');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('bg-white', 'shadow-md', 'py-2');
                 navbar.classList.remove('bg-transparent', 'py-4', 'text-white');
                 navbar.classList.add('text-wedding-red');
+                volumeBtns.forEach(btn => {
+                    btn.classList.remove('text-white');
+                    btn.classList.add('text-wedding-red');
+                });
             } else {
                 navbar.classList.remove('bg-white', 'shadow-md', 'py-2', 'text-wedding-red');
                 navbar.classList.add('bg-transparent', 'py-4', 'text-white');
+                volumeBtns.forEach(btn => {
+                    btn.classList.remove('text-wedding-red');
+                    btn.classList.add('text-white');
+                });
             }
         });
 
@@ -573,16 +657,16 @@
             const heart = document.createElement('div');
             heart.classList.add('floating-heart');
             heart.innerHTML = '<i class="fas fa-heart"></i>';
-            
+
             // Randomize position, size, and animation duration
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.animationDuration = Math.random() * 5 + 5 + 's'; // 5-10s
             heart.style.fontSize = Math.random() * 20 + 10 + 'px'; // 10-30px
-            
+
             // Random colors (Red, Gold, Pink)
             const colors = ['#800020', '#C5A059', '#e85d75'];
             heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-            
+
             document.getElementById('hearts-container').appendChild(heart);
 
             // Remove heart after animation
@@ -605,7 +689,7 @@
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(rsvpForm)})
+            fetch(scriptURL, { method: 'POST', body: new FormData(rsvpForm) })
                 .then(response => {
                     if (response.ok) {
                         rsvpForm.classList.add('hidden');
@@ -622,35 +706,51 @@
                 });
         });
     </script>
-<script>
-        const musicModal = document.getElementById('music-modal');
-        const playMusicBtn = document.getElementById('play-music-btn');
-        const mainContent = document.getElementById('main-content');
-        const audio = document.getElementById('bg-audio');
-        const volumeBtn = document.getElementById('volume-btn');
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const musicModal = document.getElementById('music-modal');
+            const playMusicBtn = document.getElementById('play-music-btn');
+            const mainContent = document.getElementById('main-content');
+            const audio = document.getElementById('bg-audio');
+            const volumeBtns = document.querySelectorAll('.volume-btn');
 
-        playMusicBtn.addEventListener('click', () => {
-            musicModal.style.display = 'none';
-            mainContent.classList.remove('hidden');
-            audio.muted = false;
-            audio.play();
-            if(volumeBtn) {
-                volumeBtn.innerHTML = '<i class="fas fa-volume-up text-2xl"></i>';
+            if (playMusicBtn) {
+                playMusicBtn.addEventListener('click', () => {
+                    musicModal.style.display = 'none';
+                    mainContent.classList.remove('hidden');
+                    audio.muted = false;
+
+                    const playPromise = audio.play();
+
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            // Playback started successfully
+                            volumeBtns.forEach(btn => {
+                                btn.innerHTML = '<i class="fas fa-volume-up text-2xl"></i>';
+                            });
+                        }).catch(error => {
+                            // Playback was prevented.
+                            console.error('Audio playback failed:', error);
+                        });
+                    }
+                });
+            }
+
+            if (audio && volumeBtns) {
+                volumeBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        if (audio.muted) {
+                            audio.muted = false;
+                            volumeBtns.forEach(b => b.innerHTML = '<i class="fas fa-volume-up text-2xl"></i>');
+                        } else {
+                            audio.muted = true;
+                            volumeBtns.forEach(b => b.innerHTML = '<i class="fas fa-volume-mute text-2xl"></i>');
+                        }
+                    });
+                });
             }
         });
-
-        // The rest of your script can go here, for example, the volume button logic
-        if (audio && volumeBtn) {
-            volumeBtn.addEventListener('click', () => {
-                if (audio.muted) {
-                    audio.muted = false;
-                    volumeBtn.innerHTML = '<i class="fas fa-volume-up text-2xl"></i>';
-                } else {
-                    audio.muted = true;
-                    volumeBtn.innerHTML = '<i class="fas fa-volume-mute text-2xl"></i>';
-                }
-            });
-        }
     </script>
 </body>
+
 </html>
